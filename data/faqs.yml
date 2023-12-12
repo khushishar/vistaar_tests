@@ -1,0 +1,14 @@
+version: "3.1"
+
+nlu:
+- intent: apply for jobs
+  examples: |
+    - Is linkedin helpul?
+    - which sites can I use?
+    - platforms to find jobs
+
+- intent: Resume
+  examples: |
+    - What to include in resume?
+    - How to write a resume?
+    - How should a resume be ?

@@ -1,0 +1,125 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - job search
+  - upskill
+  - faq
+slots:
+  name:
+    type: text
+    mappings: []
+   
+  email:
+    type: text
+    mappings: []
+    
+  phone:
+    type: text
+    mappings: []
+    
+  salary:
+    type: text
+    mappings: []
+    
+  occupation:
+    type: text
+    mappings: []
+    
+  message:
+    type: text
+    mappings: []
+    
+  confirm_details:
+    type: any
+    mappings: []
+    
+  
+
+entities:
+  - email
+  - salary
+  - phone
+ 
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_job search:
+  - text: "Tell me more to help you"
+
+  utter_upskill:
+  - text: "Skills can be domain orriented but basic skills like communications,team work,etc is relevant everywhere."
+  
+  
+  utter_faq/apply for jobs:
+  - text: "Its good to diversify your applications."
+
+  utter_faq/Resume:
+  - text: "Resume is the most important 1-2 page document"
+  
+  utter_ask_name:
+  - text: "Could you please tell me your name"
+
+  utter_ask_email:
+  - text: "Could you please tell me your email address"
+
+  utter_ask_phone:
+  - text: "Could you please tell me your phone number"
+
+  utter_ask_salary:
+  - text: "Could you please tell me your expected salary"
+
+  utter_ask_occupation:
+  - text: "Could you please tell me your occupation"
+
+  utter_ask_confirm:
+  - text: "Could you please tell me your details\n Name:{name}\nEmail:{email}\nSalary:{salary}\nOccupation:{occupation}\nMessage:{message}"
+    buttons:
+    - title: Yes 
+      payload: Yes 
+    - title: No 
+      payload: No  
+
+ 
+
+actions:
+- validate_contact_us_form
+- action_submit_contact_us_form
+forms:
+  contact_us_form:
+    required_slots:
+      - name
+      - email
+      - phone
+      - message
+      - confirm
+
+
+        
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
